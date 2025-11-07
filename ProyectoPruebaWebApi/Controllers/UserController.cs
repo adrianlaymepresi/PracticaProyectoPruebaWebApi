@@ -47,6 +47,21 @@ namespace ProyectoPruebaWebApi.Controllers
             }
         }
 
-        
+        // PUT api/user/update
+        [HttpPut("update")]
+        public async Task<IActionResult> Update(UpdateUserDto updateUserDto)
+        {
+            try
+            {
+                var user = await _userService.UpdateUserAsync(updateUserDto);
+                return Ok(new { message = "Usuario actualizado", user });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+
     }
 }

@@ -40,7 +40,22 @@ namespace ProyectoPruebaWebApi.Services
             return user;
         }
 
-        
+        public async Task<User> UpdateUserAsync(UpdateUserDto dto)
+        {
+            var user = await _context.Users.FindAsync(dto.Id);
+
+            if (user == null)
+                throw new Exception("Usuario no encontrado");
+
+            user.UserName = dto.UserName;
+            user.Email = dto.Email;
+            user.Password = HashPassword(dto.Password);
+
+            await _context.SaveChangesAsync();
+            return user;
+        }
+
+
 
         // METODOS AYUDA
         private string HashPassword(string password)
