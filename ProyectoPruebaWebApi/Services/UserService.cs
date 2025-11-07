@@ -67,7 +67,17 @@ namespace ProyectoPruebaWebApi.Services
             return user;
         }
 
+        public async Task<User> DeleteUserAsync(DeleteUserDto dto)
+        {
+            var user = await _context.Users.FindAsync(dto.Id);
 
+            if (user == null)
+                throw new Exception("Usuario no encontrado");
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return user;
+        }
 
         // METODOS AYUDA
         private string HashPassword(string password)

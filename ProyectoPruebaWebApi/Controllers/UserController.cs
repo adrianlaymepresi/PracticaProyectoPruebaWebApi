@@ -77,6 +77,19 @@ namespace ProyectoPruebaWebApi.Controllers
             }
         }
 
-
+        // DELETE api/user/delete
+        [HttpDelete("delete")]
+        public async Task<IActionResult> Delete(DeleteUserDto deleteUserDto)
+        {
+            try
+            {
+                var user = await _userService.DeleteUserAsync(deleteUserDto);
+                return Ok(new { message = "Usuario eliminado", user });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
     }
 }

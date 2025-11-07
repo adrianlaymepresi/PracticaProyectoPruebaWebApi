@@ -39,6 +39,10 @@ namespace ProyectoPruebaWebApi.Models.DTOs
         public string Email { get; set; } = string.Empty;
     }
 
-
+    public class DeleteUserDto
+    {
+        [Required]
+        public int Id { get; set; }
+    }
 
 }
