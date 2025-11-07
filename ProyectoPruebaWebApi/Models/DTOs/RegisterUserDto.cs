@@ -31,4 +31,14 @@ namespace ProyectoPruebaWebApi.Models.DTOs
         public string Password { get; set; } = string.Empty;
     }
 
+    public class UpdateEmailUserDto
+    {
+        public int Id { get; set; }
+
+        [Required, EmailAddress]
+        public string Email { get; set; } = string.Empty;
+    }
+
+
+
 }

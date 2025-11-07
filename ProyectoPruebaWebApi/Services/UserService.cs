@@ -55,6 +55,18 @@ namespace ProyectoPruebaWebApi.Services
             return user;
         }
 
+        public async Task<User> UpdateEmailAsync(UpdateEmailUserDto dto)
+        {
+            var user = await _context.Users.FindAsync(dto.Id);
+
+            if (user == null)
+                throw new Exception("Usuario no encontrado");
+
+            user.Email = dto.Email;
+            await _context.SaveChangesAsync();
+            return user;
+        }
+
 
 
         // METODOS AYUDA

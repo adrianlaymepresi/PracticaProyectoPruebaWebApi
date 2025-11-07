@@ -62,6 +62,21 @@ namespace ProyectoPruebaWebApi.Controllers
             }
         }
 
+        // PUT api/user/updateEmail
+        [HttpPut("updateEmail")]
+        public async Task<IActionResult> UpdateEmail(UpdateEmailUserDto updateEmailUserDto)
+        {
+            try
+            {
+                var user = await _userService.UpdateEmailAsync(updateEmailUserDto);
+                return Ok(new { message = "Usuario actualizado", user });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
 
     }
 }
