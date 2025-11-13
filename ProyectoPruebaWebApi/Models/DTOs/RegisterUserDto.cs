@@ -15,6 +15,8 @@ namespace ProyectoPruebaWebApi.Models.DTOs
 
         [Required]
         public string Password { get; set; } = string.Empty;
+
+        public int RolId { get; set; }
     }
 
     // Esta clase es para actualizar un usuario existente mediante el ID

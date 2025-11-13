@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoPruebaWebApi.Models
 {
@@ -15,6 +16,8 @@ namespace ProyectoPruebaWebApi.Models
 
         [Required]
         public string Password { get; set; } = string.Empty;
+
+        public int RolId { get; set; }
         /*
         public string Name { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;

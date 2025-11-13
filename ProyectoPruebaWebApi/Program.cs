@@ -30,6 +30,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// Middleware agregado con el docente
+app.UseRouting();
+app.UseAuthentication();
+
 app.MapControllers();
 
 app.Run();
